@@ -40,6 +40,14 @@ uuid = { version = "1.0", features = ["v4", "serde"] }
 futures = "0.3"
 tokio-stream = "0.1"
 
+# MLX support (macOS only)
+[target.'cfg(target_os = "macos")'.dependencies]
+mlx-rs = { version = "0.25.3", optional = true }
+
+[features]
+default = []
+mlx = ["mlx-rs"]
+
 [dev-dependencies]
 tempfile = "3.12"
 tower = { version = "0.4", features = ["util"] }
